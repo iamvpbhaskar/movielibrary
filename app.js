@@ -209,14 +209,43 @@
 		} else {
 			heroEl.innerHTML = '';
 		}
-		const missingKeyBanner = hasApiKey() ? '' : `<div class="banner">Enter your TMDB API key above and click "Save Key" to load movies.</div>`;
+		const guide = hasApiKey() ? '' : renderGuide();
 		contentEl.innerHTML = [
 			`<h2 style="margin:8px 0 12px;">${header}</h2>`,
-			missingKeyBanner,
+			guide,
 			state.error ? `<div class="empty">${escapeHtml(state.error)}</div>` : '',
 			state.isLoading ? renderSkeletons() : renderGrid(list),
 		].join('');
 		attachCardEvents(list);
+	}
+
+	function renderGuide() {
+		const testKey = 'a1c7e2e519f3a64943cee7f175d79456';
+		setTimeout(() => {
+			const btn = document.getElementById('useTestKeyBtn');
+			if (btn) {
+				btn.addEventListener('click', () => {
+					apiKeyInput.value = testKey;
+					localStorage.setItem(STORAGE_KEYS.apiKey, testKey);
+					fetchPopularMovies();
+				});
+			}
+		}, 0);
+		return `
+			<div class="guide-box">
+				<h3>First time here? How to use the app</h3>
+				<ol>
+					<li>Open <a href="https://www.themoviedb.org/settings/api" target="_blank" rel="noreferrer">TMDB API</a> and create a free account.</li>
+					<li>Request a TMDB v3 API key (free) and copy it.</li>
+					<li>Paste the key into the "TMDB API Key" field above and click <b>Save Key</b>.</li>
+					<li>Search/browse movies and build your watchlist.</li>
+				</ol>
+				<div class="guide-actions">
+					<button class="btn" id="useTestKeyBtn">Use Test Key</button>
+					<code>${testKey}</code>
+				</div>
+			</div>
+		`;
 	}
 
 	function renderHero(movie) {

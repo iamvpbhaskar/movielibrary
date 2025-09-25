@@ -310,4 +310,17 @@ html, body {
 	border-radius: var(--radius);
 }
 
+/* First-time guide */
+.guide-box {
+	margin: 10px 0 18px;
+	background: linear-gradient(180deg, rgba(20,24,37,.5), rgba(20,24,37,.35));
+	border: 1px solid var(--ring);
+	border-radius: var(--radius);
+	padding: var(--space-3);
+}
+.guide-box h3 { margin: 0 0 8px 0; font-size: 16px; }
+.guide-box ol { margin: 0 0 8px 18px; color: var(--muted); }
+.guide-box code { background: #0f172a; padding: 2px 6px; border-radius: 6px; border: 1px solid var(--ring); }
+.guide-actions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+
 

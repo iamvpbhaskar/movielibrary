@@ -28,9 +28,9 @@ This application allows users to:
    - Visit [TMDB API](https://www.themoviedb.org/settings/api)
    - Create a free account and request an API key
 4. **Enter your API key**:
-   - Paste the API key in the "TMDB API Key" field
+   - Paste the API key in the "TMDB API Key" field.
    - Click "Save Key" to store it locally
-5. **Start browsing** movies and building your watchlist!
+5. **Start browsing** movies and building your watchlist!!
 
 ## 🌐 GitHub Pages Hosting
 4. **Access my live site** at: `https://iamvpbhaskar.github.io/movielibrary`
